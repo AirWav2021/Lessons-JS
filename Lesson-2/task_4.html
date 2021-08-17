@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task-4</title>
+</head>
+
+<body>
+   <script>
+      'use strict';
+      // TASK 4
+
+      const SUMM1 = (a, b) => console.log(a + b);
+      const SUMM2 = (a, b) => console.log(a - b);
+      const SUMM3 = (a, b) => console.log(a * b);
+      const SUMM4 = (a, b) => {
+         if (a < 0) {
+            return alert('Деление на ноль невозможно!');
+         }
+         return console.log(a / b);
+      };
+
+      SUMM1(2, 3);
+      SUMM2(10, 6);
+      SUMM3(8, 2);
+      SUMM4(10, 5);
+   </script>
+</body>
+
+</html>

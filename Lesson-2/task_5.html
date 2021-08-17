@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task-5</title>
+</head>
+
+<body>
+   <script>
+      'use strict';
+      //TASK 5
+
+      const MATH_OPERATION = (arg1, arg2, operation) => {
+         switch (operation) {
+            case '+':
+               return SUMM1(arg1, arg2);
+            case '-':
+               return SUMM2(arg1, arg2);
+            case '*':
+               return SUMM3(arg1, arg2);
+            case '/':
+               return SUMM4(arg1, arg2);
+            default:
+               return alert('Ошибка' + operation);
+         }
+      }
+      MATH_OPERATION(2, 3, '+');
+      MATH_OPERATION(10, 6, '-');
+      MATH_OPERATION(8, 2, '*');
+      MATH_OPERATION(10, 5, '/');
+      MATH_OPERATION(15, 5, 'error');
+   </script>
+</body>
+
+</html>
