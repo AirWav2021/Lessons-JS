@@ -5,43 +5,20 @@
  * @param {number} num количество рублей в виде числа.
  * @returns {string} слово "рубль" в правильном падеже.
  */
-function getCase(num) {
-   let beforeLastDigit = getDigitBeforeLastDigit(num);
-   if (beforeLastDigit == 1) {
-      return "рублей";
-   }
-   num = String(num);
-   let lastNumber = Number(num.charAt(num.length - 1));
-   switch (lastNumber) {
-      case 0:
-      case 5:
-      case 6:
-      case 7:
-      case 8:
-      case 9:
-         return "рублей";
-      case 1:
-         return "рубль";
-      case 2:
-      case 3:
-      case 4:
-         return "рубля";
-   }
-}
 
-/**
- * Функция возвращает предпоследнюю цифру числа, если она есть, иначе null.
- * @param {number} num 
- * @returns {(number|null)}
- */
-function getDigitBeforeLastDigit(num) {
-   num = String(num);
-   let digit = num.charAt(num.length - 2);
-   if (digit !== "") {
-      return Number(digit);
-   }
-   return null;
-}
+let number = prompt('Какое число Вы хотите положить в банк?');
+const count = number;
 
-let money = parseInt(prompt("Сколько денег вы хотите положить на счет?"));
-alert(`Ваша сумма ${money} ${getCase(money)} успешно зачислена.`);
+const CountForm = (number, titles) => {
+   number = Math.abs(number);
+   if (Number.isInteger(number)) {
+      const cases = [2, 0, 1, 1, 1, 2];
+      return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+
+   }
+
+   return titles[1];
+
+}
+const resultRuble = (CountForm(count, ['рубль', 'рубля', 'рублей']));
+alert(`Ваша сумма ${number} ${resultRuble} успешно зачислена.`);
