@@ -51,13 +51,18 @@ productsBtn.forEach(el => { // Пробегаемся по всем кнопка
       let priceNumber = parseInt(priceWithoutSpaces(parentProduct.querySelector('.products__price').textContent));
 
       if (allProducts.length == 0) {
+<<<<<<< HEAD
          makeElem(id, priceNumber, img, title, priceNumber)
+=======
+         makeElem(id, priceNumber, img, title)
+>>>>>>> Lesson-8
       }
       else {
          let elemAvaliable = false;
          allProducts.forEach(element => {
             if (element.id === id) {
                element.count++;
+<<<<<<< HEAD
    // Пересчитываем свойство объекта ПРИ ДОБАВЛЕНИИ К ИМЕЮЩИМУСЯ - итоговая цена, получаемая цена * кличество
                element.total = element.price * element.count;
                getFullPrice();
@@ -76,6 +81,18 @@ productsBtn.forEach(el => { // Пробегаемся по всем кнопка
             makeElem(id, priceNumber, img, title)
             getFullPrice();
             // console.log(allProducts)
+=======
+               plusFullPrice(priceNumber);
+               printFullPrice();
+               document.querySelector('.cart-product__count').textContent = `${element.count} шт.`;
+               elemAvaliable = true;
+               return;
+            }
+         })
+         console.log(elemAvaliable)
+         if (elemAvaliable === false) {
+            makeElem(id, priceNumber, img, title)
+>>>>>>> Lesson-8
          }
       };
 
@@ -84,6 +101,7 @@ productsBtn.forEach(el => { // Пробегаемся по всем кнопка
 
 
 function makeElem(id, priceNumber, img, title) {
+<<<<<<< HEAD
   if(!cartProductsList.classList.contains('active')){
    cartProductsList.classList.toggle('active')
   }
@@ -146,6 +164,46 @@ const getFullPrice = () => {
 //    fullPrice.textContent = `$${normalPrice(price)}`;
 
 // };
+=======
+   let currentElem = {};
+   currentElem.id = id;
+   currentElem.count = count;
+   allProducts.push(currentElem);
+   plusFullPrice(priceNumber);
+   printFullPrice();
+   cartProductsList.querySelector('.simplebar-content').insertAdjacentHTML('afterbegin', generateCartProduct(img, title, priceNumber, id));
+   printQuantity();
+}
+
+// При добавление продукта в корзину сумма будет суммироваться +
+const plusFullPrice = (currentPrice) => {
+   return price += currentPrice;
+};
+
+// При удалении продукта из корзины сумма будет суммироваться -
+const minusFullPrice = (currentPrice) => {
+   return price -= currentPrice;
+};
+
+
+//Количество элементов внутри в корзине
+const printQuantity = () => {
+   let length = cartProductsList.querySelector('.simplebar-content').children.length;
+   cartQuantity.textContent = length;
+   if (length > 0) {
+      cartProductsList.classList.add('active');
+   } else {
+      cartProductsList.classList.remove('active');
+   };
+   // length > 0 ? cart.classList.add('active') : cart.classList.remove('active');
+};
+
+// Выводим общую стоимость в корзине
+const printFullPrice = () => {
+   fullPrice.textContent = `$${normalPrice(price)}`;
+
+};
+>>>>>>> Lesson-8
 
 /**
  *  Вставляем разметку, при добавлении товаров в корзину
@@ -158,7 +216,11 @@ const getFullPrice = () => {
  */
 const generateCartProduct = (img, title, price, id) => {
    return `
+<<<<<<< HEAD
 		<li class="cart-content__item list">
+=======
+		<li class="cart-content__item">
+>>>>>>> Lesson-8
 			<article class="cart-content__product cart-product" data-id="${id}">
 				<img src="${img}" alt="" class="cart-product__img" width="70px" height="70px">
 				<div class="cart-product__text">
@@ -177,6 +239,7 @@ const generateCartProduct = (img, title, price, id) => {
  * @param {*} productParent Функция удаление продуктов из корзины
  */
 const deleteProducts = (productParent) => {
+<<<<<<< HEAD
    // let currentPrice = parseInt(priceWithoutSpaces(productParent.querySelector('.cart-product__price').textContent));
    // let res = [];
    // allProducts.forEach(element => {
@@ -217,5 +280,25 @@ cartProductsList.addEventListener('click', (event) => {
       deleteProducts(event.target.parentElement);
       // Получал не тот элемент
       // deleteProducts(event.target.closest('.cart-content__item'));
+=======
+   let currentPrice = parseInt(priceWithoutSpaces(productParent.querySelector('.cart-product__price').textContent));
+   allProducts.forEach(element => {
+      let id = productParent.querySelector('.cart-product').dataset.id;
+      if (element.id == id) {
+         let preres = allProducts.indexOf(element);
+         allProducts.splice(preres);
+      }
+   })
+   minusFullPrice(currentPrice);
+   printFullPrice();
+   productParent.remove();
+
+   printQuantity();
+};
+
+cartProductsList.addEventListener('click', (elem) => {
+   if (elem.target.classList.contains('cart-product__delete')) {
+      deleteProducts(elem.target.closest('.cart-content__item'));
+>>>>>>> Lesson-8
    }
 });

@@ -952,7 +952,11 @@ article.cart-content__product.cart-product {
   margin-top: 0;
 }
 
+<<<<<<< HEAD
 /* @-webkit-keyframes bounce-in-top {
+=======
+@-webkit-keyframes bounce-in-top {
+>>>>>>> Lesson-8
   0% {
     transform: translateY(-500px);
     -webkit-animation-timing-function: ease-in;
@@ -1020,7 +1024,11 @@ article.cart-content__product.cart-product {
     transform: translateY(-1000px);
     opacity: 0;
   }
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> Lesson-8
 .feature__inner {
   margin-top: 95px;
   background: #222224;
@@ -1281,7 +1289,11 @@ article.cart-content__product.cart-product {
 * animation ping
 * ----------------------------------------
 */
+<<<<<<< HEAD
 /* @-webkit-keyframes ping {
+=======
+@-webkit-keyframes ping {
+>>>>>>> Lesson-8
   0% {
     transform: scale(0.2);
     opacity: 1;
@@ -1294,7 +1306,11 @@ article.cart-content__product.cart-product {
     transform: scale(2.2);
     opacity: 0;
   }
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> Lesson-8
 .breadcrumb {
   min-height: 148px;
   background-color: #f8f3f4;
