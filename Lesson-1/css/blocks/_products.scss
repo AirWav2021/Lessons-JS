@@ -42,11 +42,12 @@
    &__item {
       width: 360px;
       margin-bottom: 30px;
-      margin-right: 30px;
+      margin-right: 20px;
       position: relative;
       overflow: hidden;
       height: 100%;
       cursor: pointer;
+      box-shadow: 2px 2px 10px 0px #ccc;
       @include media("max", "sm") {
          margin-right: 0;
          margin-bottom: 16px;
@@ -56,7 +57,6 @@
       }
       &:hover .products__overlay {
          opacity: 1;
-         animation: bounce-in-top 0.8s;
          visibility: visible;
       }
    }
@@ -66,20 +66,25 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 420px;
+      height: 300px;
       background: $dark-overlay;
       display: flex;
       justify-content: center;
       align-items: center;
       opacity: 0;
       transition: 0.5s;
-      animation: slide-out-top 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);
       visibility: hidden;
    }
 
    &__img {
-      height: 420px;
+      height: 300px;
       transition: all 0.8s ease;
+   }
+   &__img-card {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
    }
    &__img-card {
       @include media("max", "sm") {
@@ -93,11 +98,12 @@
       opacity: 1;
       transition: all 0.5s ease;
       position: relative;
-      font-size: 14px;
       left: 0;
       z-index: 1;
       color: #fff;
-      outline: 1px solid;
+      background-color: #ff8800;
+      outline: none;
+      border: none;
       display: flex;
       font-size: 14px;
       width: 143px;
@@ -105,6 +111,7 @@
       margin: 0 auto;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
    }
 
    &__icon-cart {
@@ -123,7 +130,8 @@
       margin-bottom: 12px;
       font-weight: 400;
       line-height: 15.6px;
-      font-size: 13px;
+      font-size: 25px;
+      color: $fe-desc;
    }
    &__item:nth-child(3n) {
       margin-right: 0;
@@ -144,97 +152,17 @@
 
    &__price {
       margin-top: 18px;
-      display: block;
-      color: #f16d7f;
+      display: inline-block;
+      background-color: $price;
+      color: $fe-desc;
       font-size: 16px;
       font-weight: 400;
       line-height: 19.2px;
+      padding: 10px 40px;
+      border-radius: 50px;
    }
 
    &__catalog-inner {
-      margin-top: 0;
-   }
-}
-
-@-webkit-keyframes bounce-in-top {
-   0% {
-      -webkit-transform: translateY(-500px);
-      transform: translateY(-500px);
-      -webkit-animation-timing-function: ease-in;
-      animation-timing-function: ease-in;
-      opacity: 0;
-   }
-   38% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      -webkit-animation-timing-function: ease-out;
-      animation-timing-function: ease-out;
-      opacity: 1;
-   }
-   55% {
-      -webkit-transform: translateY(-65px);
-      transform: translateY(-65px);
-      -webkit-animation-timing-function: ease-in;
-      animation-timing-function: ease-in;
-   }
-   72% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      -webkit-animation-timing-function: ease-out;
-      animation-timing-function: ease-out;
-   }
-   81% {
-      -webkit-transform: translateY(-28px);
-      transform: translateY(-28px);
-      -webkit-animation-timing-function: ease-in;
-      animation-timing-function: ease-in;
-   }
-   90% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      -webkit-animation-timing-function: ease-out;
-      animation-timing-function: ease-out;
-   }
-   95% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-      -webkit-animation-timing-function: ease-in;
-      animation-timing-function: ease-in;
-   }
-   100% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      -webkit-animation-timing-function: ease-out;
-      animation-timing-function: ease-out;
-   }
-}
-
-/**
- * ----------------------------------------
- * animation slide-out-top
- * ----------------------------------------
- */
-@-webkit-keyframes slide-out-top {
-   0% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      opacity: 1;
-   }
-   100% {
-      -webkit-transform: translateY(-1000px);
-      transform: translateY(-1000px);
-      opacity: 0;
-   }
-}
-@keyframes slide-out-top {
-   0% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      opacity: 1;
-   }
-   100% {
-      -webkit-transform: translateY(-1000px);
-      transform: translateY(-1000px);
-      opacity: 0;
+      margin-top: 150px;
    }
 }
