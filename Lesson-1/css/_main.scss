@@ -1,0 +1,51 @@
+::-webkit-details-marker {
+   display: none;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+a {
+   text-decoration: none;
+}
+
+.container {
+   max-width: 1140px;
+   margin: 0 auto;
+   width: 100%;
+   // max-width: calc(1140px - 16px * 2);
+   @include media("max", "sm") {
+      max-width: 768px;
+      padding: 0 16px;
+   }
+   @include media("max", "xs") {
+      padding: 0 8px;
+   }
+}
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   // min-height: 100vh;
+   min-height: 100%;
+}
+
+.main {
+   flex: 1 1 auto;
+}
+
+html,
+body {
+   font-size: 14px;
+   font-weight: 300;
+   font-family: "Lato", sans-serif;
+   height: 100%;
+   min-width: 375px;
+   background: $body;
+   line-height: 1.6;
+   box-sizing: border-box;
+   overflow-anchor: none;
+}
